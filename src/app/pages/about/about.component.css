@@ -1,0 +1,12 @@
+.about {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.about h1 {
+    color: #28a745;
+}
+
+.about p {
+    font-size: 18px;
+}

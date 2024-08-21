@@ -1,39 +1,9 @@
+<nav class="navbar">
+  <ul>
+    <li><a routerLink="/">Home</a></li>
+    <li><a routerLink="/about">About</a></li>
+    <li><a routerLink="/contact">Contact</a></li>
+  </ul>
 
-
-<div class="main">
-  <div class="container">
-    <div class="navigation">
-      <div class="web-icon">
-        <img src="{{srcIcon}}" alt="{{altIcon}}">
-        <h2 id="web-name">{{webName}}</h2>
-      </div>
-      <div class="sign-in">
-        <button id="signIn" type="button">Sign in</button>
-        <button id="signUp" type="button">Sign up</button>
-      </div>
-    </div>
-    <div class="profile-image">
-      <img src="{{src}}" alt="{{altImage}}">
-      <h2 id="profile-name">{{name}}</h2>
-    </div>
-    <div class="btn-change">
-      <button id="profile-btn" type="button" (click)="change()">Change profile photo</button>
-      <button id="info-btn" type="button">Change infomation</button>
-    </div>
-    <div class="Information-list">
-      <ul>
-        @for (social of socialList; track social.name) {
-          <li><a href="{{social.link}}">{{social.name}}</a></li>
-        }
-      </ul>
-    </div>
-    <div class="footer">
-      <h5 id="footer-text">{{footer}}</h5>
-      <a routerLink="/todo-list" routerLinkActive="active" ariaCurrentWhenActive="page">Go to To do List page</a>
-    </div>
-  </div>
-</div>
-
-
-
-<router-outlet />
+</nav>
+<router-outlet></router-outlet>
