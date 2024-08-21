@@ -17,4 +17,18 @@
         <textarea formControlName="message" id="message" rows="5" cols="50" placeholder="Enter your message"></textarea>
     </div>
     <button type="submit" [disabled]="contactForm.invalid">Submit</button>
+    <!-- Thông báo thành công -->
+    <div *ngIf="successMessages" class="alert alert-success">
+        {{ successMessages }}
+    </div>
+    
+    <!-- Thông báo lỗi -->
+    <div *ngIf="errorMessages" class="alert alert-danger">
+        {{ errorMessages }}
+    </div>
+    
+    <!-- Thông báo khác -->
+    <div *ngIf="infoMessages" class="alert alert-info">
+        {{ infoMessages }}
+    </div>
 </form>
