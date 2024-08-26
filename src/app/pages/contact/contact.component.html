@@ -1,34 +1,40 @@
 <div class="contact">
     <h1>Contact Us</h1>
     <p>Feel free to contact us if you have any questions or concerns.</p>
+    <button (click)="toggleForm()">Show Contact Form</button>
+</div>/
+
+<div *ngIf="isFormVisible" @formAnimation>
+    <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <div>
+            <label for="name">Name:</label>
+            <input formControlName="name" id="name" placeholder="Your name" autofocus>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input formControlName="email" id="email" placeholder="example@gmail.com">
+        </div>
+        <div>
+            <label for="message">Message:</label>
+            <textarea formControlName="message" id="message" rows="5" cols="50" placeholder="Enter your message"></textarea>
+        </div>
+        <button type="submit">Submit</button>
+        <!-- [disabled]="!contactForm.valid" -->
+        <p>Form Status: {{ contactForm.status }}</p>
+        <!-- Thông báo thành công -->
+        <div *ngIf="showSuccessMessage" @fadeInOut  class="alert alert-success">
+            {{ successMessages }}
+        </div>
+        
+        <!-- Thông báo lỗi -->
+        <div *ngIf="showErrorMessage" @fadeInOut class="alert alert-danger">
+            {{ errorMessages }}
+        </div>
+        
+        <!-- Thông báo khác -->
+        <div *ngIf="infoMessages" class="alert alert-info">
+            {{ infoMessages }}
+        </div>
+    </form>
 </div>
 
-<form class="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-    <div>
-        <label for="name">Name:</label>
-        <input formControlName="name" id="name" placeholder="Your name" autofocus>
-    </div>
-    <div>
-        <label for="email">Email:</label>
-        <input formControlName="email" id="email" placeholder="example@gmail.com">
-    </div>
-    <div>
-        <label for="message">Message:</label>
-        <textarea formControlName="message" id="message" rows="5" cols="50" placeholder="Enter your message"></textarea>
-    </div>
-    <button type="submit" [disabled]="contactForm.invalid">Submit</button>
-    <!-- Thông báo thành công -->
-    <div *ngIf="successMessages" class="alert alert-success">
-        {{ successMessages }}
-    </div>
-    
-    <!-- Thông báo lỗi -->
-    <div *ngIf="errorMessages" class="alert alert-danger">
-        {{ errorMessages }}
-    </div>
-    
-    <!-- Thông báo khác -->
-    <div *ngIf="infoMessages" class="alert alert-info">
-        {{ infoMessages }}
-    </div>
-</form>
