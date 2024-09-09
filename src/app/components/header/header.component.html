@@ -1,0 +1,13 @@
+<nav class="navbar">
+    <div class="router">
+        <ul>
+            @for (router of routerList; track router.name) {
+                <li><a routerLink="{{ router.link }}">{{ router.name }}</a></li>
+            }
+        </ul>
+    </div>
+    <div class="btn-login">
+        <button class="sign-in" type="button">Đăng nhập</button>
+        <button class="sign-up" type="button">Đăng ký</button>
+    </div>
+</nav>

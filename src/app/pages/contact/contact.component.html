@@ -2,7 +2,7 @@
     <h1>Contact Us</h1>
     <p>Feel free to contact us if you have any questions or concerns.</p>
     <button (click)="toggleForm()">Show Contact Form</button>
-</div>/
+</div>
 
 <div *ngIf="isFormVisible" @formAnimation>
     <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
