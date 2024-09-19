@@ -10,23 +10,17 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
+import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
-    {
-        path: 'header',
-        component: HeaderComponent
-    },
-    {
-        path: 'footer',
-        component: FooterComponent
-    },
-    {
-        path: 'sidebar',
-        component: SidebarComponent
-    },
+    // {
+    //     path: '',
+    //     component: HomeComponent
+    // },
     {
         path: '',
-        component: HomeComponent
+        redirectTo: '/login',
+        pathMatch:'full'
     },
     {
         path: 'about',
@@ -47,13 +41,9 @@ export const routes: Routes = [
     {
         path: 'admin-dashboard',
         component: AdminDashboardComponent,
-        // canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
     },
-    {
-        path: '',
-        redirectTo: '/login',
-        pathMatch:'full'
-    },
+    
     {
         path: '**',
         component: PageNotFoundComponent

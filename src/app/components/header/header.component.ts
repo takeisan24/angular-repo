@@ -28,4 +28,10 @@ export class HeaderComponent {
       link: '/blog'
     },
   ]
+  constructor(
+    private router: Router
+  ) {}
+  goToLogin(){
+    this.router.navigate(['/login']);
+  }
 }

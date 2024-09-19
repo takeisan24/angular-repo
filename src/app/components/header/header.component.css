@@ -29,7 +29,7 @@
     justify-content: center;
 }
 
-.sign-in {
+.btn-login button {
     background-color: #007bff;
     color: #fff;
     border: 1px solid transparent;
@@ -38,19 +38,6 @@
     cursor: pointer;
     margin-left: 350px;
 }
-.sign-in:hover {
+.btn-login button:hover {
     background-color: #0056b3;
-}
-
-.sign-up {
-    background-color: #28a745;
-    color: #fff;
-    border: 1px solid transparent;
-    padding: 5px 10px;
-    border-radius: 5px;
-    margin-left: 20px;
-    cursor: pointer;
-}
-.sign-up:hover {
-    background-color: #218838;
 }

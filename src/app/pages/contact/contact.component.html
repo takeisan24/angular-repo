@@ -4,7 +4,7 @@
     <button (click)="toggleForm()">Show Contact Form</button>
 </div>
 
-<div *ngIf="isFormVisible" @formAnimation>
+<div class="contact-container" *ngIf="isFormVisible" @formAnimation>
     <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
         <div>
             <label for="name">Name:</label>

@@ -9,19 +9,27 @@ export class AuthService {
   private isAuthenticated = false;
   constructor(private http: HttpClient) { }
 
-  login(credentials: any): Observable<any> {
-    return this.http.post('http://localhost:4200/login', credentials);
+  private localhost = 'http://localhost:4200';
+
+  login(credentials: {email: string; password: string}): Observable<any> {
+    return this.http.post(`${this.localhost}/login`, credentials);
   }
 
+  register(credentials: {email: string; password: string}): Observable<any> {
+    return this.http.post(`${this.localhost}/register`, credentials);
+  }
+
+  setToken(token: string){
+      localStorage.setItem('token', token);
+      this.isAuthenticated = true;
+    }
+  
   logout(){
     localStorage.removeItem('token');
     this.isAuthenticated = false;
   }
 
-  setToken(token: string){
-    localStorage.setItem('token', token);
-    this.isAuthenticated = true;
-  }
+  
   isLoggedIn(){
     return this.isAuthenticated || !!localStorage.getItem('token');
   }
